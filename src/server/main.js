@@ -1,9 +1,10 @@
-import express from "express";
-import ViteExpress from "vite-express";
-import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
-import cors from "cors";
+import express from 'express';
+import ViteExpress from 'vite-express';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import dbConnection from './utils/dbConnection.js';
 
 dotenv.config();
 
@@ -13,8 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
+dbConnection();
+
 const { PORT } = process.env || 8000;
 
 ViteExpress.listen(app, PORT, () =>
-  console.log("Server is listening on port " + PORT)
+  // eslint-disable-next-line no-console
+  console.log(`Server is listening on port ${PORT}`),
 );
