@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import dbConnection from './utils/dbConnection.js';
+import RootRouter from './routes/RootRouter.js';
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(cookieParser());
 app.use(cors());
 
 dbConnection();
+
+app.use('/api', RootRouter);
 
 const { PORT } = process.env || 8000;
 
