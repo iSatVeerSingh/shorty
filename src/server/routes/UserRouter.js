@@ -1,9 +1,18 @@
 import { Router } from 'express';
+import {
+  CreateNewUser,
+  LoginUser,
+  VerifySignupEmail,
+} from '../controllers/userController.js';
+import {
+  validateLoginMiddleware,
+  validateSignupMiddleware,
+} from '../middlewares/userMiddleware.js';
 
 const UserRouter = Router();
 
-UserRouter.get('/helo', (req, res) => {
-  res.send('Thsi si su user router ');
-});
+UserRouter.post('/signup', validateSignupMiddleware, CreateNewUser);
+UserRouter.get('/signup/verify', VerifySignupEmail);
+UserRouter.post('/login', validateLoginMiddleware, LoginUser);
 
 export default UserRouter;
