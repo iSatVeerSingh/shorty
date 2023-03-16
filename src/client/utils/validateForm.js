@@ -1,9 +1,9 @@
 const validateForm = (formdata, type) => {
   const formErrors = {};
 
-  if (type === "signup") {
+  if (type !== 'login') {
     if (!formdata.name || formdata.name.length < 1) {
-      formErrors.name = "Name is required";
+      formErrors.name = 'Name is required';
     }
   }
 
@@ -11,10 +11,13 @@ const validateForm = (formdata, type) => {
     !formdata.email ||
     !/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+$/.test(formdata.email)
   ) {
-    formErrors.email = "Please provide valid email";
+    formErrors.email = 'Please provide valid email';
   }
-  if (!formdata.password || formdata.password.length < 8) {
-    formErrors.password = "Password must be 8 characters long";
+
+  if (type !== 'shortlink') {
+    if (!formdata.password || formdata.password.length < 8) {
+      formErrors.password = 'Password must be 8 characters long';
+    }
   }
 
   if (Object.keys(formErrors).length !== 0) {

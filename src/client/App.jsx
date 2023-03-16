@@ -12,6 +12,7 @@ import ShortUrl from './pages/ShortUrl';
 import Signup from './pages/Signup';
 import SignupVerify from './pages/SignupVerify';
 import UrlsList from './pages/UrlsList';
+import VerifyLink from './pages/VerifyLink';
 import './styles/global.css';
 
 const router = createBrowserRouter(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route path='/login' element={<Login />} />
       <Route path='/short' element={<ShortUrl />} />
       <Route path='/urls' element={<UrlsList />} />
+      <Route path='/:linkId' element={<VerifyLink />} />
     </Route>,
   ),
 );
