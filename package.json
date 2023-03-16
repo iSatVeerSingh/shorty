@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "nodemon src/server/main.js -w src/server",
     "start": "NODE_ENV=production node src/server/main.js",
+    "lint": "eslint './src/client/**'",
+    "lint-server": "eslint './src/server/**' --fix",
     "build": "vite build"
   },
   "dependencies": {

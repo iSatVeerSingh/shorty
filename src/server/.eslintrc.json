@@ -13,7 +13,7 @@
   "plugins": ["prettier", "import"],
   "rules": {
     "import/extensions": [
-      "never",
+      "error",
       {
         "js": "ignorePackages"
       }

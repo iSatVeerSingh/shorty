@@ -1,9 +1,9 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-const UserRouter = Router()
+const UserRouter = Router();
 
-UserRouter.get('/helo', (req, res)=> {
-  res.send('Thsi si su user router ')
-})
+UserRouter.get('/helo', (req, res) => {
+  res.send('Thsi si su user router ');
+});
 
-export default UserRouter
+export default UserRouter;
