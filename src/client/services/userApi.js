@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const userApi = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "/api",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export const getAllUrls = async () => {
 
 export const getVerify = async (token) => {
   try {
-    const response = await userApi.get("/verify", {
+    const response = await userApi.get("/signup/verify", {
       params: {
         token,
       },
