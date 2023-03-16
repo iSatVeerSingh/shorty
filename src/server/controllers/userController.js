@@ -76,6 +76,12 @@ export const LoginUser = async (req, res) => {
 
   try {
     const user = await UserModel.findOne({ email });
+    if (!user.verified) {
+      res
+        .status(httpStatus.BAD_REQUEST)
+        .json(getErrorResponse('Account is not verified'));
+      return;
+    }
 
     const isValid = await validatePassword(password, user.password);
 
