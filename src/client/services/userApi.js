@@ -73,3 +73,16 @@ export const sendClickVerification = async (linkId, userData) => {
     return err.response.data;
   }
 };
+
+export const linkClickRedirect = async (urlId, token) => {
+  try {
+    const response = await userApi.get(`/${urlId}/verify`, {
+      params: {
+        token,
+      },
+    });
+    return response.data;
+  } catch (err) {
+    return err.response.data;
+  }
+};

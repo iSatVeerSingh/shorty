@@ -115,9 +115,15 @@ export const RedirectToOriginalUrl = async (req, res) => {
     const user = await UserModel.findById(urlData.createdBy, { email: 1 });
     await sendUserEmail(user.email, { name }, 'linkClick');
 
-    res.status(httpStatus.TEMPORARY_REDIRECT);
-    res.redirect(urlData.originalUrl);
+    res.status(httpStatus.OK).json(getSuccessResponse(urlData.originalUrl));
   } catch (err) {
-    res.status(httpStatus.BAD_REQUEST).json(getErrorResponse(err));
+    if (err.name === 'JsonWebTokenError') {
+      res
+        .status(httpStatus.BAD_REQUEST)
+        .json(getErrorResponse('Invalid link or expired'));
+      return;
+    }
+
+    res.status(httpStatus.INTERNAL_SERVER_ERROR).json(getErrorResponse(err));
   }
 };

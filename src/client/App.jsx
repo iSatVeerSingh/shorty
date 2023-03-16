@@ -8,6 +8,7 @@ import {
 import RootLayout from './components/Layouts/RootLayout';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Redirect from './pages/Redirect';
 import ShortUrl from './pages/ShortUrl';
 import Signup from './pages/Signup';
 import SignupVerify from './pages/SignupVerify';
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path='/short' element={<ShortUrl />} />
       <Route path='/urls' element={<UrlsList />} />
       <Route path='/:linkId' element={<VerifyLink />} />
+      <Route path='/:linkId/verify' element={<Redirect />} />
     </Route>,
   ),
 );
