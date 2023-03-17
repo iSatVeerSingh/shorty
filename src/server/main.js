@@ -10,6 +10,8 @@ import RootRouter from './routes/RootRouter.js';
 dotenv.config();
 
 const app = express();
+ViteExpress.config({mode: process.env.MODE})
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
