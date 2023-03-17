@@ -33,7 +33,9 @@ const SignupVerify = () => {
     <div className='text-center py-12'>
       <p className='text-2xl'>{isVerify.message}</p>
       <div className='mt-5'>
-        <Link className='text-2xl underline' to='/login' >Login Here</Link>
+        <Link className='text-2xl underline' to='/login'>
+          Login Here
+        </Link>
       </div>
     </div>
   );

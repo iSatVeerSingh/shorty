@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server/main.js -w src/server",
     "start": "NODE_ENV=production node src/server/main.js",
-    "lint-client": "eslint './src/client/**' --fix",
-    "lint-server": "eslint './src/server/**' --fix",
-    "lint": "eslint './src/**' --fix",
+    "format": "prettier ./src/* --write",
     "build": "vite build"
   },
   "dependencies": {
@@ -34,11 +32,6 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.0.1",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.36.0",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
     "nodemon": "^2.0.20",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",

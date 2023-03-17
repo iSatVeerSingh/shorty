@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import InputBox from "../components/Input/InputBox";
-import SubmitButton from "../components/Buttons/SubmitButton";
-import { shortUrl } from "../services/userApi";
-import Loading from "../components/Loading/Loading";
+import React, { useState } from 'react';
+import InputBox from '../components/Input/InputBox';
+import SubmitButton from '../components/Buttons/SubmitButton';
+import { shortUrl } from '../services/userApi';
+import Loading from '../components/Loading/Loading';
 
 const ShortUrl = () => {
   const [formError, setFormError] = useState(null);
@@ -15,7 +15,7 @@ const ShortUrl = () => {
     e.preventDefault();
     const formValue = new FormData(e.target);
     const formdata = {
-      originalUrl: formValue.get("originalUrl").toString().trim() || "",
+      originalUrl: formValue.get('originalUrl').toString().trim() || '',
     };
 
     setIsShort({ loading: true });
@@ -33,17 +33,17 @@ const ShortUrl = () => {
   }
 
   return (
-    <div className="h-screen flex items-center flex-col">
-      <div className="py-10 min-w-[500px]">
+    <div className='h-screen flex items-center flex-col'>
+      <div className='py-10 min-w-[500px]'>
         <form onSubmit={handleShortURl}>
           <InputBox
-            type="text"
-            name="originalUrl"
-            id="originalUrl"
-            placeholder="enter long url here"
+            type='text'
+            name='originalUrl'
+            id='originalUrl'
+            placeholder='enter long url here'
             inputError={formError}
           />
-          <SubmitButton btnText="Create Short Url" />
+          <SubmitButton btnText='Create Short Url' />
         </form>
       </div>
       {isShort.shortUrl && (
